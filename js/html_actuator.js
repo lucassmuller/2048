@@ -109,6 +109,8 @@ HTMLActuator.prototype.updateScore = function (score) {
   var difference = score - this.score;
   this.score = score;
 
+  window.top.postMessage({ type: 'score', data: this.score }, '*');
+
   this.scoreContainer.textContent = this.score;
 
   if (difference > 0) {
